@@ -25,15 +25,14 @@
                 
                 <Label Content="Сотрудник: "/>
                 <ComboBox x:Name="ComboBoxEmployees" Height="20px" Width="200px" ItemsSource="{Binding EmployeesView}" DisplayMemberPath="Name" SelectedValuePath="Name"
-                          SelectedItem="{Binding SelectedEmployee}" SelectedIndex="0"/>
+                          SelectedItem="{Binding SelectedEmployee}" />
                 
                 <Label x:Name="BrigadeInfoLabel" Width="200px" Content="Информация о бригаде:" />
                 <Label x:Name="BrigadeLabel" Width="200px" Content="{Binding SelectedBrigade.Name}"/>
 
 
                 <Label x:Name="SmenaInfoLabel" Width="200px" Content="Смена:" />
-                <ComboBox SelectedIndex="0" x:Name="ComboBoxChange" Height="20px" Width="200px" ItemsSource="{Binding ChangesView}" DisplayMemberPath="Name" SelectedValuePath="Name"
-                              />
+                <ComboBox x:Name="ComboBoxChange" Height="20px" Width="200px" ItemsSource="{Binding ChangesView}" DisplayMemberPath="Name" SelectedValuePath="Name" />
                 
                 <Button Grid.Column="1" Height="17" Margin="0,0,-200,0" Content="Сохранить" Click="Button_Click"></Button>
             

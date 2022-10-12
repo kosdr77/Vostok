@@ -76,6 +76,7 @@ namespace Vostok.ViewModel
                     Changes.Add(new Change() { Id = index, Name = $"{start % 24}-{(start + loop) % 24}" });
 
                 ChangesView = CollectionViewSource.GetDefaultView(Changes);
+                OnPropertyChanged(nameof(ChangesView));
             }
         }
 
