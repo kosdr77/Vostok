@@ -1,0 +1,43 @@
+﻿<Window x:Class="Vostok.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:Vostok.ViewModel"
+        mc:Ignorable="d"
+        Title="x" Height="250" Width="441" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel />
+    </Window.DataContext>
+
+    <StackPanel>
+        <GroupBox Padding="5" HorizontalAlignment="Center" Height="213">
+            <UniformGrid Rows="6" Columns="2">
+                
+                <Label Content="Город: "/>
+                <ComboBox x:Name="ComboBoxCities" Height="20px" Width="200px" ItemsSource="{Binding CitiesView}" DisplayMemberPath="Name" SelectedValuePath="Name"
+                              SelectedItem="{Binding SelectedCity}" SelectedIndex="0"/>
+                
+                <Label Content="Цех: "/>
+                <ComboBox x:Name="ComboBoxWorkshops" Height="20px" Width="200px" ItemsSource="{Binding WorkshopsView}" DisplayMemberPath="Name" SelectedValuePath="Name"
+                              SelectedItem="{Binding SelectedWorkshop}" SelectedIndex="0"/>
+                
+                <Label Content="Сотрудник: "/>
+                <ComboBox x:Name="ComboBoxEmployees" Height="20px" Width="200px" ItemsSource="{Binding EmployeesView}" DisplayMemberPath="Name" SelectedValuePath="Name"
+                          SelectedItem="{Binding SelectedEmployee}" SelectedIndex="0"/>
+                
+                <Label x:Name="BrigadeInfoLabel" Width="200px" Content="Информация о бригаде:" />
+                <Label x:Name="BrigadeLabel" Width="200px" Content="{Binding SelectedBrigade.Name}"/>
+
+
+                <Label x:Name="SmenaInfoLabel" Width="200px" Content="Смена:" />
+                <ComboBox SelectedIndex="0" x:Name="ComboBoxChange" Height="20px" Width="200px" ItemsSource="{Binding ChangesView}" DisplayMemberPath="Name" SelectedValuePath="Name"
+                              />
+                
+                <Button Grid.Column="1" Height="17" Margin="0,0,-200,0" Content="Сохранить" Click="Button_Click"></Button>
+            
+            </UniformGrid>
+        </GroupBox>
+    </StackPanel>
+</Window>
